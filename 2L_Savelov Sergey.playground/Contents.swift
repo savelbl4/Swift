@@ -1,23 +1,13 @@
-//var ik = [0,1,2,3,4,5,6,7,8,9,10]
-var x = ""
 // задание 1
-func task01(_ a: Int) -> String{
-    if a % 2 == 0 {
-        return "true"//чётное
-    }
-    return "false"
+func task01(_ a: Int) -> Bool{
+    return a % 2 == 0
 }
-x = task01(6)
-print(x)
+print(task01(7))
 // задание 2
-func task02(_ a: Int) -> String{
-    if a % 3 == 0 {
-        return "true"//делится
-    }
-    return "false"
+func task02(_ a: Int) -> Bool{
+    return a % 3 == 0
 }
-x = task02(2)
-print(x)
+print(task02(9))
 // задание 3
 var Arr = Array<Int>()
 for i in 0...99 {
@@ -27,12 +17,12 @@ print(Arr)
 // задание 4
 func task04(array: [Int]){
     Arr.removeAll()
-    for i in array where task01(i) == "false" {
+    for i in array where task01(i) == false {
         Arr.append(i)
     }
     let _Arr = Arr
     Arr.removeAll()
-    for i in _Arr where task02(i) == "true" {
+    for i in _Arr where task02(i) == true {
         Arr.append(i)
     }
     print(Arr)
