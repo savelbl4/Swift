@@ -28,7 +28,7 @@ class Car {
     }
     func action() {} // пустой метод
 }
-class trunkCar: Car {
+class TrunkCar: Car {
     var actionWithTrunk: ActionsWithTrunk = .unLoad {
         willSet {
             newValue == .upLoad ? print("загружаем...") : print("раззгружаем...")
@@ -61,7 +61,7 @@ class trunkCar: Car {
         }
     }
 }
-class sportСar: Car {
+class SportСar: Car {
     var hatchStatus: String = "Люк закрыт"
     var actionWithHatch: ActionsWithHatch = .closeHatch {
         willSet {
@@ -99,8 +99,8 @@ class sportСar: Car {
         }
     }
 }
-var bagazhnik = trunkCar(mark: "volvo", yearOfIssue: 2001, actionWithTrunk: .unLoad)
-var pushkagonka = sportСar(mark: "mazda", yearOfIssue: 1999, actionWithHatch: .closeHatch)
+var bagazhnik = TrunkCar(mark: "volvo", yearOfIssue: 2001, actionWithTrunk: .unLoad)
+var pushkagonka = SportСar(mark: "mazda", yearOfIssue: 1999, actionWithHatch: .closeHatch)
 
 print(bagazhnik.info)
 bagazhnik.action()
