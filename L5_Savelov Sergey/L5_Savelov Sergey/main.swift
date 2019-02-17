@@ -51,12 +51,26 @@ extension Car {
 }
 extension TrunkCar: CustomStringConvertible {
     var description: String{
-        return "марка: \(mark), год выпуска: \(yearOfIssue), состояние двигателя: \(statusOfEngine), состояние окон: \(statusOfWindows), состояние багажника: \(statusOfTheTrunk)"
+        return """
+                    багажник
+        марка:                  \(mark)
+        год выпуска:            \(yearOfIssue)
+        состояние двигателя:    \(statusOfEngine)
+        состояние окон:         \(statusOfWindows)
+        состояние багажника:    \(statusOfTheTrunk)
+        """
     }
 }
 extension SportCar: CustomStringConvertible {
     var description: String{
-        return "марка: \(mark), год выпуска: \(yearOfIssue), состояние двигателя: \(statusOfEngine), состояние окон: \(statusOfWindows), состояние люка: \(hatchStatus)"
+        return """
+                    пушкагонка
+        марка:                  \(mark)
+        год выпуска:            \(yearOfIssue)
+        состояние двигателя:    \(statusOfEngine)
+        состояние окон:         \(statusOfWindows)
+        состояние люка:         \(hatchStatus)
+        """
     }
 }
 class Car {
@@ -158,5 +172,5 @@ print(bagazhnik.startOrStopTheEngine())
 print(pushkagonka.startOrStopTheEngine())
 print(bagazhnik.openOrCloseWindows())
 print(pushkagonka.openOrCloseWindows())
-print("\n\(bagazhnik.description)\n")
-print("\n\(pushkagonka.description)\n")
+print(bagazhnik)
+print(pushkagonka)
