@@ -166,13 +166,13 @@ class SportCar: Car {
     }
 }
 
-struct Stack<T> where T: Windows, T: Engine {
+struct Queue<T> where T: Windows, T: Engine {
     private var elements: [T] = []
     mutating func push(_ element: T) {
         elements.append(element)
     }
     mutating func pop() -> T? {
-        return elements.removeLast()
+        return elements.removeFirst()
     }
     mutating func windowsIsDown(predicate: (String) -> Bool) -> [T] {
         let arr: [T] = elements
@@ -213,21 +213,21 @@ let engineOn: (String) -> Bool = { (i: String) -> Bool in
     return i == "Двигатель запущен"
 }
 
-var stack = Stack<Car>()
+var queue = Queue<Car>()
 
 var trunkCar = TrunkCar(mark: "volvo", yearOfIssue: 2001, actionWithTrunk: .unLoad)
 var sportCar = SportCar(mark: "mazda", yearOfIssue: 1999, actionWithHatch: .closeHatch)
 
-stack.push(trunkCar)
-stack.push(sportCar)
+queue.push(trunkCar)
+queue.push(sportCar)
 
 trunkCar.actionWithWindows = .windowsOpen // открыли окна в повседневной машине
 sportCar.actionWithEngine = .engineOn // запустили двигатель в спортивной машине
 
-var carsWithOpenWindows = stack.windowsIsDown(predicate: windowsOpen)
-var carsRunning = stack.engineIsOn(predicate: engineOn)
+var carsWithOpenWindows = queue.windowsIsDown(predicate: windowsOpen)
+var carsRunning = queue.engineIsOn(predicate: engineOn)
 
 print(carsWithOpenWindows)
 print(carsRunning)
 
-print(stack[2] as Any)
+print(queue[2] as Any)
